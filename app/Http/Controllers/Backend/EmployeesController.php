@@ -11,4 +11,14 @@ class EmployeesController extends Controller
     {
         return view('backend.employees.list');
     }
+
+    public function add(Request $request)
+    {
+        return view('backend.employees.add');
+    }
+
+    public function add_post(Request $request)
+    {
+        dd($request->all());
+    }
 }
