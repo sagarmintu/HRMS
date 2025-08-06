@@ -51,8 +51,8 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="{{ url('admin/dashboard') }}" class="nav-link active">
-              <i class="nav-icon fa fa-home"></i>
+            <a href="{{ url('admin/dashboard') }}" class="nav-link @if(Request::segment(2) == 'dashboard') active @endif">
+              <i class="nav-icon fa fa-tachometer-alt"></i>
               <p>
                 Dashboard
               </p>
@@ -60,7 +60,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('admin/employees') }}" class="nav-link">
+            <a href="{{ url('admin/employees') }}" class="nav-link @if(Request::segment(2) == 'employees') active @endif">
               <i class="nav-icon fa fa-users"></i>
               <p>
                 Employees
@@ -69,7 +69,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('admin/jobs') }}" class="nav-link">
+            <a href="{{ url('admin/jobs') }}" class="nav-link @if(Request::segment(2) == 'jobs') active @endif">
               <i class="nav-icon fa fa-briefcase"></i>
               <p>
                 Jobs
@@ -78,7 +78,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('admin/job_history') }}" class="nav-link">
+            <a href="{{ url('admin/job_history') }}" class="nav-link @if(Request::segment(2) == 'job_history') active @endif">
               <i class="nav-icon fa fa-history"></i>
               <p>
                 Job History
@@ -87,7 +87,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('admin/job_grades') }}" class="nav-link">
+            <a href="{{ url('admin/job_grades') }}" class="nav-link @if(Request::segment(2) == 'job_grades') active @endif">
               <i class="nav-icon fa fa-star"></i>
               <p>
                 Job Grades
@@ -96,7 +96,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('admin/departments') }}" class="nav-link">
+            <a href="{{ url('admin/departments') }}" class="nav-link @if(Request::segment(2) == 'departments') active @endif">
               <i class="nav-icon fa fa-building"></i>
               <p>
                 Department
@@ -105,7 +105,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('admin/countries') }}" class="nav-link">
+            <a href="{{ url('admin/countries') }}" class="nav-link @if(Request::segment(2) == 'countries') active @endif">
               <i class="nav-icon fa fa-flag"></i>
               <p>
                 Countries
@@ -114,7 +114,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('admin/locations') }}" class="nav-link">
+            <a href="{{ url('admin/locations') }}" class="nav-link @if(Request::segment(2) == 'locations') active @endif">
               <i class="nav-icon fa fa-map-marker-alt"></i>
               <p>
                 Location
@@ -123,7 +123,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="{{ url('admin/regions') }}" class="nav-link">
+            <a href="{{ url('admin/regions') }}" class="nav-link @if(Request::segment(2) == 'regions') active @endif">
               <i class="nav-icon fa fa-asterisk"></i>
               <p>
                 Regions
