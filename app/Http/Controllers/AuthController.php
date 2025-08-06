@@ -73,4 +73,10 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Please enter the correct crediential');
         }
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/');
+    }
 }
