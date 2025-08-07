@@ -10,7 +10,8 @@ class EmployeesController extends Controller
 {
     public function index(Request $request)
     {
-        return view('backend.employees.list');
+        $data['getRecord'] = User::getRecord();
+        return view('backend.employees.list', $data);
     }
 
     public function add(Request $request)
@@ -20,7 +21,6 @@ class EmployeesController extends Controller
 
     public function add_post(Request $request)
     {
-        //dd($request->all());
         $user = request()->validate([
             'name'                     => 'required',
             'email'                    => 'required|unique:users',
