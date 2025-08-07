@@ -30,7 +30,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Add Employee</h3>
                             </div>
-                            <form action="post" class="form-horizontal" accept="{{ url('admin/employees/add') }}" enctype="multipart/form-data">
+                            <form method="post" class="form-horizontal" accept="{{ url('admin/employees/add') }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="card-body">
 
@@ -120,7 +120,7 @@
 
                                 <div class="card-footer">
                                     <a href="{{ url('admin/employees') }}" class="btn btn-secondary">Back</a>
-                                    <button type="submit" name="" class="btn btn-primary float-right">Submit</button>
+                                    <button type="submit" class="btn btn-primary float-right">Submit</button>
                                 </div>
 
                             </form>
