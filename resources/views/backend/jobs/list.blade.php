@@ -79,21 +79,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @forelse($getRecord as $value)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{ $value->id }}</td>
+                                            <td>{{ $value->job_title }}</td>
+                                            <td>{{ $value->min_salary }}</td>
+                                            <td>{{ $value->max_salary }}</td>
+                                            <td>{{ date('d-m-Y H:i:s A', strtotime($value->created_at)) }}</td>
+                                            <td>
+                                                <a href="{{ url('admin/jobs/view/'.$value->id) }}" class="btn btn-warning">View</a>
+                                                <a href="{{ url('admin/jobs/edit/'.$value->id) }}" class="btn btn-success">Edit</a>
+                                                <a href="{{ url('admin/jobs/delete/'.$value->id) }}" onclick="confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                                            </td>
                                         </tr>
+                                        @empty
                                         <tr>
                                             <td colspan="100%">No Record Found</td>
                                         </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                                 <div style="padding: 10px; float: right;">
-                                    {{-- {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!} --}}
+                                    {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
                                 </div>
                             </div>
                         </div>

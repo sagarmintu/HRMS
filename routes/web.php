@@ -39,6 +39,9 @@ Route::group(['middleware' => 'admin'], function() {
 
     // Job Section
     Route::get('admin/jobs', [jobsController::class, 'index']);
+    Route::get('admin/jobs/add', [jobsController::class, 'add']);
+    Route::post('admin/jobs/add', [jobsController::class, 'add_post']);
+    Route::get('admin/jobs/view/{id}', [jobsController::class, 'view']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);

@@ -30,7 +30,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">Add Employee</h3>
                             </div>
-                            <form method="post" class="form-horizontal" accept="{{ url('admin/employees/add') }}" enctype="multipart/form-data">
+                            <form method="post" class="form-horizontal" action="{{ url('admin/employees/add') }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="card-body">
 
