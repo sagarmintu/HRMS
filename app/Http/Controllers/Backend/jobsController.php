@@ -41,4 +41,33 @@ class jobsController extends Controller
         $data['getRecord'] = JobsModel::find($id);
         return view('backend.jobs.view',$data);
     }
+
+    public function edit($id)
+    {
+        $data['getRecord'] = JobsModel::find($id);
+        return view('backend.jobs.edit',$data);
+    }
+
+    public function update($id, Request $request)
+    {
+        $job = request()->validate([
+            'job_title'   => 'required',
+            'min_salary'  => 'required',
+            'max_salary'  => 'required',
+        ]);
+
+        $job              = JobsModel::find($id);
+        $job->job_title   = trim($request->job_title);
+        $job->min_salary  = trim($request->min_salary);
+        $job->max_salary  = trim($request->max_salary);
+        $job->save();
+        return redirect('admin/jobs')->with('success', 'Jobs Successfully Updated');
+    }
+
+    public function delete($id)
+    {
+        $recordDelete = JobsModel::find($id);
+        $recordDelete->delete();
+        return redirect()->back()->with('error', 'Jobs Successfully Deleted');
+    }
 }

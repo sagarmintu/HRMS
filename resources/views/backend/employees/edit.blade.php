@@ -73,9 +73,9 @@
                                         <label class="col-sm-2 col-form-lable">Job Title <span style="color: red;">*</span></label>
                                         <div class="col-sm-10">
                                             <select name="job_id" class="form-control">
-                                                <option value="">Select Job Title</option>
-                                                <option {{ $getRecord->job_id == 1 ? 'selected' : '' }} value="1">Web Developer</option>
-                                                <option {{ $getRecord->job_id == 2 ? 'selected' : '' }} value="2">Java Developer</option>
+                                                @foreach ($getJobs as $jobs)
+                                                    <option {{ ($jobs->id == $getRecord->job_id) ? 'selected' : '' }} value={{ $jobs->id }}>{{ $jobs->job_title }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
