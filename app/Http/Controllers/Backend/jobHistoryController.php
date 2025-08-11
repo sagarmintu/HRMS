@@ -12,7 +12,8 @@ class jobHistoryController extends Controller
 {
     public function index(Request $request)
     {
-        return view('backend.job_history.list');
+        $data['getRecord'] = JobHistoryModel::getRecord($request);
+        return view('backend.job_history.list', $data);
     }
 
     public function add()
@@ -20,5 +21,26 @@ class jobHistoryController extends Controller
         $data['getEmployees'] = User::where('is_role', '=', 0)->get();
         $data['getJobs'] = JobsModel::get();
         return view('backend.job_history.add', $data);
+    }
+
+    public function add_post(Request $request)
+    {
+        $jobhistory = request()->validate([
+            'employee_id' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'job_id' => 'required',
+            'department_id' => 'required',
+        ]);
+
+        $jobhistory = new JobHistoryModel;
+        $jobhistory->employee_id   = trim($request->employee_id);
+        $jobhistory->start_date    = trim($request->start_date);
+        $jobhistory->end_date      = trim($request->end_date);
+        $jobhistory->job_id        = trim($request->job_id);
+        $jobhistory->department_id = trim($request->department_id);
+        $jobhistory->save();
+
+        return redirect('admin/job_history')->with('success', 'Job History Successfully Added');
     }
 }
