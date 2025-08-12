@@ -83,6 +83,7 @@
                                             <th>Job Name</th>
                                             <th>Department Name</th>
                                             <th>Created At</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -101,6 +102,10 @@
                                                 @endif
                                             </td>
                                             <td>{{ date('d-m-Y H:i A', strtotime($data->created_at)) }}</td>
+                                            <td>
+                                                <a href="{{ url('admin/job_history/edit/'.$data->id) }}" class="btn btn-success">Edit</a>
+                                                <a href="{{ url('admin/job_history/delete/'.$data->id) }}" onclick="confirm('Are you sure you want to delete?')" class="btn btn-danger">Delete</a>
+                                            </td>
                                         </tr>
                                         @empty
                                         <tr colspan="100%">
